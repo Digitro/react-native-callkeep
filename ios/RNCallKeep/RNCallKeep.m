@@ -376,7 +376,18 @@ RCT_EXPORT_METHOD(sendDTMF:(NSString *)uuidString dtmf:(NSString *)key)
                   fromPushKit:(BOOL)fromPushKit
                       payload:(NSDictionary * _Nullable)payload
 {
-    [RNCallKeep reportNewIncomingCall:uuidString handle:handle handleType:handleType hasVideo:hasVideo localizedCallerName:localizedCallerName fromPushKit:fromPushKit payload:payload withCompletionHandler:nil];
+    [RNCallKeep reportNewIncomingCall: uuidString
+                               handle: handle
+                           handleType: handleType
+                             hasVideo: hasVideo
+                  localizedCallerName: localizedCallerName
+                      supportsHolding: supportsHolding
+                         supportsDTMF: supportsDTMF
+                     supportsGrouping: supportsGrouping
+                   supportsUngrouping: supportsUngrouping
+                          fromPushKit: fromPushKit
+                              payload: payload
+                withCompletionHandler: nil];
 }
 
 + (void)reportNewIncomingCall:(NSString *)uuidString
@@ -384,6 +395,10 @@ RCT_EXPORT_METHOD(sendDTMF:(NSString *)uuidString dtmf:(NSString *)key)
                    handleType:(NSString *)handleType
                      hasVideo:(BOOL)hasVideo
           localizedCallerName:(NSString * _Nullable)localizedCallerName
+              supportsHolding:(BOOL)supportsHolding
+                 supportsDTMF:(BOOL)supportsDTMF
+             supportsGrouping:(BOOL)supportsGrouping
+           supportsUngrouping:(BOOL)supportsUngrouping
                   fromPushKit:(BOOL)fromPushKit
                       payload:(NSDictionary * _Nullable)payload
         withCompletionHandler:(void (^_Nullable)(void))completion

@@ -168,7 +168,7 @@ class RNCallKeep {
     let iosOptions = {};
     if (options && options.ios) {
       iosOptions = {
-        ...options.ios;
+        ...options.ios,
       }
     }
     RNCallKeepModule.updateDisplay(uuid, displayName, handle, iosOptions);
